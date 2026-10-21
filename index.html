@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Wu Kaixin's personal page</title>
+    <!-- 引入外部 CSS 文件，实现结构与样式分离 -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 头部导航：后续会用 fixed 定位固定在顶部 -->
+    <header class="top-nav">
+        <div class="nav-inner">
+            <span class="logo">个人角色偏好站</span>
+            <nav>
+                <a href="index.html" class="active">主页</a>
+                <a href="2.html">主页内容的详细介绍</a>
+                <a href="3.html">联系我</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主体内容 -->
+    <main class="container">
+        <!-- 欢迎区域 -->
+        <section class="hero">
+            <h1>你好，欢迎来到我的主页</h1>
+            <p>这里是一个名为wkx的人在学习制作个人网页。她将会介绍一些自己喜欢的人物或角色。（非常简略地）</p>
+        </section>
+
+        <!-- 课程目标卡片区域：使用相对定位作为父容器，方便子元素绝对定位 -->
+        <section class="cards">
+            <div class="card">
+                <h2>🐭 阿尔吉侬</h2>
+                <p>一只与其书中主角有相同命运的小老鼠。</p>
+            </div>
+            <div class="card">
+                <h2>🐮 牛爷爷</h2>
+                <p>一位来自外星的可怕人物。</p>
+            </div>
+            <div class="card">
+                <h2>🐱 猫爷</h2>
+                <p>一位在其作品里身手敏捷的大理寺少卿。</p>
+                <!-- 一个用绝对定位装饰的小徽章 -->
+                <span class="badge">在深夜里捉贼中...</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 我的个人主页 | 课程实验作品</p>
+    </footer>
+</body>
+</html>

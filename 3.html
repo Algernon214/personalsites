@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>联系我 - 我的个人角色偏好站</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="top-nav">
+        <div class="nav-inner">
+            <span class="logo">个人角色偏好站</span>
+            <nav>
+                <a href="index.html">主页</a>
+                <a href="2.html">主页内容的详细介绍</a>
+                <a href="3.html" class="active">联系我</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>联系我</h1>
+        <p>你可以通过以下方式找到我：</p>
+        <ul class="contact-list">
+            <li>📧 邮箱：0724wkxa@cumt.edu.cn</li>（邮箱为假）
+        </ul>
+
+        <!-- 交互区域：点击按钮，显示一段隐藏的提示 -->
+        <div class="interaction-box">
+            <p>想看看 JavaScript 的小效果吗？</p>
+            <button id="greetBtn">点我一下</button>
+            <!-- 这段文字默认隐藏，由 JS 控制显示 -->
+            <p id="greetMsg" style="display: none; margin-top: 15px; color: #1a5f5f; font-weight: bold;">
+                ✨ 你好！这是用 JavaScript 实现的点击事件效果。实验顺利完成！
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 我的个人主页 | 课程实验作品</p>
+    </footer>
+
+    <!-- 引入外部 JS 文件 -->
+    <script src="js/script.js"></script>
+</body>
+</html>

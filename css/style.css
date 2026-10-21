@@ -1,0 +1,268 @@
+/* ===== 全局重置与基础样式 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== 全局文字基底：所有文字的默认格式 ===== */
+body {
+    /* 字体族：优先微软雅黑，兼顾 Mac 的苹方，最后回退无衬线 */
+    font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+    font-size: 16px;              /* 基准字号，1rem = 16px */
+    line-height: 1.8;            /* 行高为字号的 1.8 倍，中文阅读最舒适 */
+    color: #2c3e50;              /* 深蓝灰，比纯黑柔和，久看不累 */
+    background-color: #f0f7f7;   /* 极浅青灰背景，护眼且呼应 GIS 主题 */
+    letter-spacing: 0.3px;       /* 字间距微调，中文更舒展 */
+    -webkit-font-smoothing: antialiased;  /* Mac 下字体更细腻 */
+}
+
+/* ===== 顶部导航：固定定位 (fixed) ===== */
+.top-nav {
+    position: fixed;      /* 固定定位：始终停留在浏览器窗口顶部 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a5f5f;  /* 深青绿色 */
+    color: #fff;
+    z-index: 1000;        /* 确保导航栏在最上层，不被其他内容遮挡 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;        /* Flex 布局让 logo 和导航链接分列两端 */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.top-nav nav a {
+    color: #cce8e8;
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.top-nav nav a:hover,
+.top-nav nav a.active {
+    color: #ffffff;
+    border-bottom: 2px solid #7fd1d1;
+    padding-bottom: 4px;
+}
+
+/* ===== 主体容器：留出顶部导航的高度 ===== */
+.container {
+    max-width: 1100px;
+    margin: 100px auto 40px;  /* 上边距避开 fixed 导航栏 */
+    padding: 0 20px;
+}
+
+/* ===== 欢迎区域 ===== */
+.hero {
+    background: linear-gradient(135deg, #e0f0f0, #c8e6e6);
+    padding: 40px 30px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 1.8rem;
+    color: #1a5f5f;
+    margin-bottom: 12px;
+}
+
+/* ===== 卡片区域：相对定位作为参照 ===== */
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;   /* 相对定位：作为内部 .badge 绝对定位的参照物 */
+    flex: 1 1 280px;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(26, 95, 95, 0.08);
+    border-left: 4px solid #1a5f5f;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);  /* 鼠标悬停时轻轻上浮 */
+}
+
+.card h2 {
+    font-size: 1.15rem;
+    color: #1a5f5f;
+    margin-bottom: 10px;
+}
+
+/* ===== 徽章：绝对定位 (absolute) ===== */
+.badge {
+    position: absolute;   /* 绝对定位：相对于 .card (relative) 定位 */
+    top: -10px;
+    right: 16px;
+    background-color: #7fd1d1;
+    color: #1a5f5f;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+/* ===== 段落基础样式：所有 p 的默认格式 ===== */
+p {
+    font-size: 1rem;
+    line-height: 1.8;        /* 行距宽松，阅读更舒适 */
+    color: #2c3e50;
+    margin-bottom: 16px;     /* 段间距，避免段落挤在一起 */
+}
+
+/* ===== 引导段：左侧竖线 + 稍大字号 ===== */
+.intro {
+    font-size: 1.08rem;
+    color: #1a5f5f;
+    border-left: 4px solid #7fd1d1;  /* 左侧青色装饰线 */
+    padding-left: 16px;
+    background-color: #f7fbfb;
+}
+
+/* ===== 重点段：浅青底色卡片感 ===== */
+.highlight {
+    background-color: #e0f0f0;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-weight: 500;
+    color: #1a5f5f;
+}
+
+/* ===== 补充说明：小字灰色斜体 ===== */
+.note {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-style: italic;
+    border-top: 1px dashed #c8e6e6;  /* 上方虚线分隔 */
+    padding-top: 10px;
+}
+
+/* ===== 居中段落 ===== */
+.text-center {
+    text-align: center;
+}
+
+/* ===== 正文超链接：四状态完整样式 ===== */
+
+/* 1. 未访问：青色，去掉默认下划线，改用底部细线 */
+.text-link:link {
+    color: #1a5f5f;
+    text-decoration: none;              /* 去掉浏览器默认下划线 */
+    border-bottom: 1px solid #7fd1d1;   /* 用细线代替，更精致 */
+    padding-bottom: 1px;
+    transition: all 0.25s ease;         /* 状态切换时平滑过渡 */
+}
+
+/* 2. 已访问：稍微偏灰的青色，和未访问区分但不出戏 */
+.text-link:visited {
+    color: #4a7c7c;
+    border-bottom-color: #b0d8d8;
+}
+
+/* 3. 鼠标悬停：加深颜色 + 底色高亮 + 细线变实 */
+.text-link:hover {
+    color: #ffffff;
+    background-color: #1a5f5f;
+    border-bottom-color: #1a5f5f;
+    border-radius: 3px;
+    padding: 1px 4px;                   /* 悬停时略微加内边距，形成“小标签”感 */
+}
+
+/* 4. 按下瞬间：再深一档，给点击反馈 */
+.text-link:active {
+    color: #ffffff;
+    background-color: #0f3d3d;
+}
+
+/* ===== 键盘可访问性：Tab 聚焦时显示轮廓 ===== */
+.text-link:focus {
+    outline: 2px dashed #7fd1d1;
+    outline-offset: 2px;
+}
+
+/* ===== 图文并排行：Flex 布局 ===== */
+.media-row {
+    display: flex;              /* 开启弹性布局，子元素默认横向排列 */
+    align-items: center;        /* 图片与文字在垂直方向居中对齐 */
+    gap: 28px;                  /* 图与文之间的间距 */
+    margin-bottom: 36px;        /* 每组之间留出距离 */
+    padding: 20px;
+    background-color: #ffffff;  /* 白底，让内容从浅青背景中浮出来 */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(26, 95, 95, 0.08);
+}
+
+/* 翻转：让图片跑到右侧（文字在左） */
+.media-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* ===== 图片栏 ===== */
+.media-img {
+    flex: 0 0 40%;              /* 不放大不缩小，固定占 40% 宽度 */
+    max-width: 400px;
+}
+
+.media-img img {
+    width: 100%;                /* 图片宽度撑满自己的容器 */
+    height: auto;               /* 高度按比例自适应，不变形 */
+    display: block;             /* 去掉图片底部的默认空隙 */
+    border-radius: 10px;        /* 圆角，和整站风格统一 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.media-img img:hover {
+    transform: scale(1.03);     /* 鼠标悬停时轻微放大，增加灵动感 */
+}
+
+/* ===== 文字栏 ===== */
+.media-text {
+    flex: 1;                    /* 占满剩余空间 */
+}
+
+/* 文字栏里的段落去掉首行缩进，图文并排时更整齐 */
+.media-text p {
+    text-indent: 0;
+    margin-bottom: 10px;
+}
+
+/* ===== 小屏适配：窄屏时改为上下排列 ===== */
+@media (max-width: 768px) {
+    .media-row,
+    .media-row.reverse {
+        flex-direction: column;  /* 改为纵向堆叠 */
+        text-align: center;
+    }
+    .media-img {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+}
+
+/* ===== 页脚 ===== */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #7f8c8d;
+    font-size: 0.85rem;
+}
